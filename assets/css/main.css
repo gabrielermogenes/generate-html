@@ -1,0 +1,249 @@
+main{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    padding-inline: 95px;
+}
+
+
+
+.main__form{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 10px;
+}
+
+.card{
+    border: 1px solid rgba(123, 123, 123, 0.222);
+    border-radius: 10px;
+    background-color: #181D26;
+    padding: 20px;
+    height: auto;
+    min-height: 250px;
+
+    flex: 0 0 calc(50% - 10px);
+    box-sizing: border-box;
+}
+
+.card--preencher{
+    height: 500px;
+}
+
+.card-title{
+    padding: 5px;
+   margin-bottom: 15px;
+}
+
+.card__title-text{
+    font-size: clamp(0.8rem, 0.9vw, 1rem);
+    color: #385DA6;
+}
+
+.card__input-container{
+    display: flex;
+    gap: 7px;
+    flex-direction: column;
+}
+
+.card__text{
+    font-size: clamp(0.8rem, 0.9vw, 1.2rem);
+    color: #848484;
+}
+
+.card__item{
+    padding: 10px 15px;
+    border: 1px solid rgba(123, 123, 123, 0.222);
+    border-radius: 9px;
+    background-color: #181C27;
+    color: white;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+}
+
+.card__item:focus{
+    outline: none; 
+    border-color: #385DA6;
+    box-shadow: 0 0 20px #385DA6;
+}
+
+.card__content{
+    background-color: #162930cc;
+    border: 1px solid #134545;
+    border-radius: 15px;
+    padding: 20px;
+    height: 170px;
+}
+
+.card__content-item{
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.card__date{
+    color: #04D99D;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: clamp(0.7rem, 0.7vw + 0.2rem, 1rem);
+}
+
+.btn__submit{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    border: 1px solid transparent;
+    background-color: #385DA6;
+    border-radius: 10px;
+    padding: 15px;
+    transition: all 0.3s ease;
+    font-size: clamp(0.8rem, 0.9vw + 0.3rem, 1.2rem);
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.btn__submit:hover{
+    border: 1px solid white;
+    background-color: #2e4a8c;
+    box-shadow: 0 0 10px #385DA6;
+}
+
+.btn__submit i{
+    font-size: clamp(0.8rem, 0.9vw +  0.4rem, 1.2rem);
+    color: yellow;
+    border: inset 3px solid #000000;
+    animation: pulse 1s ease-in-out infinite;
+}
+
+/* ========== OUTPUT ========== */
+.output {
+    margin-top: 40px;
+    padding: 10px;
+    animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.output__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.output__title {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: clamp(0.8rem, 0.9vw + 0.2rem, 1.1rem);
+    color: #04D99D;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.output__title i {
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+#btn-copiar {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    background-color: transparent;
+    border: 1px solid rgba(123, 123, 123, 0.4);
+    border-radius: 8px;
+    color: #848484;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: clamp(0.7rem, 0.8vw, 0.95rem);
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#btn-copiar:hover {
+    border-color: #04D99D;
+    color: #04D99D;
+    box-shadow: 0 0 12px rgba(4, 217, 157, 0.2);
+}
+
+.output__code {
+    background-color: #0a0d14;
+    border: 1px solid rgba(123, 123, 123, 0.2);
+    border-radius: 12px;
+    padding: 25px;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: clamp(0.65rem, 0.7vw + 0.1rem, 0.85rem);
+    color: #c8d0e8;
+    line-height: 1.8;
+    white-space: pre-wrap;
+    word-break: break-all;
+    max-height: 420px;
+    overflow-y: auto;
+}
+
+/* Scrollbar estilizada */
+.output__code::-webkit-scrollbar {
+    width: 6px;
+}
+
+.output__code::-webkit-scrollbar-track {
+    background: #0f1117;
+    border-radius: 10px;
+}
+
+.output__code::-webkit-scrollbar-thumb {
+    background: #385DA6;
+    border-radius: 10px;
+}
+
+.output__code::-webkit-scrollbar-thumb:hover {
+    background: #04D99D;
+}
+
+.output__hint {
+    margin-top: 12px;
+    font-size: clamp(0.7rem, 0.75vw, 0.9rem);
+    color: #606680;
+    display: flex;
+    align-items: flex-start;
+    gap: 7px;
+    padding-left: 5px;
+}
+
+.output__hint strong {
+    color: #848484;
+}
+
+.output__code {
+    background-color: #0a0d14;
+    border: 1px solid rgba(123, 123, 123, 0.2);
+    border-radius: 12px;
+    padding: 25px;
+    font-family: "Sora", sans-serif; /* troca pra Sora pra renderizar como e-mail */
+    font-size: 14px;
+    color: #c8d0e8;
+    line-height: 1.8;
+    white-space: normal; /* troca de pre-wrap pra normal */
+    word-break: break-word;
+    max-height: 420px;
+    overflow-y: auto;
+}

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de HTML</title>
+
+    <!-- Estilos CSS -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/main.css">
+
+    <!-- Bibliotecas -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css" integrity="sha512-kJlvECunwXftkPwyvHbclArO8wszgBGisiLeuDFwNM8ws+wKIw0sv1os3ClWZOcrEB2eRXULYUsm8OVRGJKwGA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body>
+    <header class="header">
+        <div class="header__container">
+            <span class="header__brand">
+                <i class="ri-flashlight-fill"></i>
+                <p class="header__brand-text">Power Automate . E-Mail Generator</p>
+            </span>
+            <h1 class="header__title">Gerador De Template de E-mail</h1>
+            <p class="header__description">Preencha os campos e copie o HTML pronto para colar no Power Automate.</p>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="main__content-card">
+        <form id="form-gerador" novalidate class="main__form">
+            <!-- 1 Dados do Relatório -->
+            <article class="card">
+                <header class="card-title">
+                   <h2 class="card__title-text">// Dados do Relatório</h2>
+                </header>
+              
+                        <div class="card__input-container">
+                            <label for="relatorio" class="card__text">Tipo de Relatório</label>
+                            <input type="text" name="relatorio" id="relatorio" placeholder="Ex: Efîciecia (OEE) Semanal" class="card__item">
+                        </div>
+
+                        <div class="card__input-container">
+                            <label for="planta" class="card__text">Nome da planta / área</label>
+                            <input type="text" name="planta" id="planta" placeholder="Ex: Eg, Planta 2..." class="card__item">
+                        </div>
+              
+            </article>
+
+            <!-- 2 Datas (Power Automate)-->
+            <article class="card">
+                <header class="card-title">
+                   <h2 class="card__title-text">// Datas (automáticas pelo Power Automate)</h2>
+                </header>
+
+                <div class="card__content">
+                    <div class="card__content-item">
+                        <p class="card__text">Data Inicial: </p>
+                        <span class="card__date">@{formatDateTime(startOfMonth(utcNow()), '01/MM')}</span>
+                    </div>
+
+                    <div class="card__content-item">
+                        <p class="card__text">Data Final: </p>
+                        <span class="card__date">@{formatDateTime(utcNow(), 'dd/MM')}</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 3 Seus Dados -->
+            <article class="card card--preencher">
+                <header class="card-title">
+                   <h2 class="card__title-text">// Seus Dados</h2>
+                </header>
+
+          
+                    <div class="card__input-container">
+                        <label for="name" class="card__text">Nome</label>
+                        <input type="text" name="name" id="name" placeholder="Ex: Gabriel da Silva" class="card__item">
+                    </div>
+
+                    <div class="card__input-container">
+                        <label for="cargo" class="card__text">Cargo</label>
+                        <input type="text" name="cargo" id="cargo" placeholder="Ex: Analista" class="card__item">
+                    </div>
+
+                    <div class="card__input-container">
+                        <label for="area" class="card__text">Área / Departamento</label>
+                        <input type="text" name="area" id="area" placeholder="Ex: Excelência Operacional" class="card__item">
+                    </div>
+
+                    <div class="card__input-container">
+                        <label for="telefone" class="card__text">Telefone</label>
+                        <input type="text" name="telefone" id="telefone" placeholder="Ex: (11) XXXXX-XXXX" class="card__item">
+                    </div>
+
+                    <div class="card__input-container">
+                        <label for="email" class="card__text">Email</label>
+                        <input type="email" name="email" id="email" placeholder="Ex: gabriel.silva@empresa.com" class="card__item">
+                    </div>
+            </article>
+
+            <!-- 4 Empresa / Planta-->
+            <article class="card card--preencher">
+                  <header class="card-title">
+                   <h2 class="card__title-text">// Empresa / Planta</h2>
+                </header>
+            
+                    <div class="card__input-container">
+                        <label for="name-enterprise" class="card__text">Nome da empresa</label>
+                        <input type="text" name="name-enterprise" id="name-enterprise" placeholder="Ex: União Quimica" class="card__item">
+                    </div>
+
+                    <div class="card__input-container">
+                        <label for="address" class="card__text">Endereço</label>
+                        <input type="text" name="address" id="address" placeholder="Ex: Rua Exemplo, 123" class="card__item">
+                    </div>
+
+                    <div class="card__input-container">
+                        <label for="cep" class="card__text">Cep / Cidade</label>
+                        <input type="text" name="cep" id="cep" placeholder="Ex: 06900-000 - Embu Guaçu - Brasil" class="card__item">
+                    </div>
+
+                    <div class="card__input-container">
+                        <label for="site" class="card__text">Site</label>
+                        <input type="url" name="site" id="site" placeholder="Ex: www.uniaoquimica.com.br" class="card__item">
+                    </div>
+
+                    <div class="card__input-container">
+                        <label for="logo" class="card__text">URL da Logo</label>
+                        <input type="url" name="logo" id="logo" placeholder="Ex: https://empresa.com/logo.png" class="card__item">
+                    </div>
+               
+            </article>
+
+            <button type="button" id="btn-gerar" class="btn__submit"><i class="ri-flashlight-fill"></i> Gerar Código para Power Automate</button>
+
+        </form>
+        </section>
+
+        <!-- Output -->
+         <section class="output" id="output" style="display: none;">
+            <header class="output__header">
+                <h3 class="output__title"><i class="ri-donut-chart-fill"></i> Código gerado — pronto para colar no Body</h3>
+
+                <button type="button" id="btn-copiar">
+                    <i class="ri-file-copy-line"></i> Copiar
+                </button>
+            </header> 
+            <pre class="output__code" id="output__code"></pre>
+         </section>
+    </main>
+
+    <footer class="footer">
+        <p class="footer__text">© 2026 | Desenvolvido por <a href="https://www.linkedin.com/in/devgabrielermogenes/" target="_blank" class="footer__link">Gabriel Ermogenes de Paula.</a> Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- Script  -->
+    <script src="./assets/js/script.js"></script>
+</body>
+</html>

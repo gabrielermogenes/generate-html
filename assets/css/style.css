@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Sora:wght@100..800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Sora', sans-serif;
+}
+
+body, html {
+    width: 100%;
+    height: 100%;
+    background-color: #0f1117;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(79, 124, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(79, 124, 255, 0.04) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.header, .main, .footer {
+    position: relative;
+    z-index: 1;
+}
+
+.header{
+    padding-block: 50px;
+    text-align: start;
+    padding-inline: 95px;
+    
+}
+
+.header__container {
+    padding-bottom: 30px;
+    border-bottom: 1px solid #505050;
+    border-radius: 5px;
+}
+
+.header__brand{
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin-bottom: 20px;
+    width: clamp(200px, 30vw, 350px);
+    height: auto;
+    font-size: clamp(0.7em, 0.8vw + 0.3rem, 1.2rem);
+    background-color: rgba(0, 89, 255, 0.194);
+    border: 1px solid #0643bb;
+    color: #385DA6;
+    border-radius: 10px;
+    padding: 4px 20px;
+}
+
+
+.header__brand i{
+    color: yellow;
+    border: inset 2px solid #000000;
+    transition: all 0.3s infinite;
+    animation: pulse 1s ease-in-out infinite;
+
+}
+
+.header__brand i:hover{
+    color: rgb(255, 255, 255);
+    border: inset 2px solid #ffffff;
+    animation: flash 1s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.header__title{
+    color: white;
+    font-size: clamp(1.5em, 2vw + 0.3rem, 2.5rem);
+}
+
+.header__description{
+    color: #c0c0c0;
+    font-size: clamp(0.8em, 0.8vw + 0.3rem, 1.2rem);
+    margin-top: 15px;
+}
+
+.footer{
+    border-top: 1px solid #45454583;
+    text-align: center;
+    padding: 15px;
+    margin-top: 50px;
+    font-size: clamp(0.7em, 0.8vw + 0.1rem, 1rem);
+}
+
+.footer__text{
+    color: #c0c0c0;
+  
+}
+
+.footer__link{
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+  
+}
